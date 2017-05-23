@@ -110,14 +110,15 @@ Sumber : https://ambilgratis.com/2013/09/17/konfigurasi-pgadmin-dengan-postgresq
 
 
 
-***** NOTE :
+***** NOTE *****:
 Error : warning: Falling back to the standard locale ("C").
 	=> 	$ locale-gen en_US en_US.UTF-8 
 		$ dpkg-reconfigure locales
 	Sumber : https://stackoverflow.com/questions/17712700/postgres-locale-error
 -----------------------------------------------------------------------------
 
-root@basmalahkita:/etc/postgresql/9.6/main# /etc/init.d/postgresql restart
+Saat Error Restart PostgreSQL
+root@[user]:/etc/postgresql/9.6/main# /etc/init.d/postgresql restart
 perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
 	LANGUAGE = (unset),
