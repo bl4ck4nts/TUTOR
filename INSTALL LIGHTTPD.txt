@@ -1,0 +1,121 @@
+
+
+================== PACKAGE INSTALL ==================
+- lighttpd
+- php5-pgsql
+- php-cgi
+- php5-cli
+- php-fpm
+- smbclient
+
+
+
+http://www.howtoforge.com/installing-lighttpd-with-php5-php-fpm-and-mysql-support-on-ubuntu-13.04
+
+apt-get install lighttpd
+
+apt-get install php5-fpm php5
+
+sudo apt-get remove php5-fpm php5
+
+To enable PHP5 in Lighttpd, we must modify /etc/php5/fpm/php.ini and uncomment the line cgi.fix_pathinfo=1:
+=> sudo vim /etc/php5/fpm/php.ini
+
+
+INSTALL Postgresql : 
+sudo apt-get install php5-pgsql 
+sudo apt-get install postgresql postgresql-contrib (jika server db 1 PC)
+
+Setelah semua setup, langkah aman restart server (untuk memastikan all service run)
+================== END PACKAGE INSTALL ==================
+
+
+
+
+
+================== LANGKAH2 BACKUP FILE ==================
+Copy All file "/var/www"
+Copy All file "/etc/lighttpd"
+Copy All file "/etc/php5"
+
+
+cd /etc/lighttpd/conf-available/
+sudo cp 15-fastcgi-php.conf 15-fastcgi-php-spawnfcgi.conf
+sudo vi 15-fastcgi-php.conf
+
+
+To enable the fastcgi configuration, run the following commands:
+
+	sudo lighttpd-enable-mod fastcgi
+	sudo lighttpd-enable-mod fastcgi-php
+	sudo lighttpd-enable-mod local
+
+	This creates the symlinks /etc/lighttpd/conf-enabled/10-fastcgi.conf which points to /etc/lighttpd/conf-available/10-fastcgi.conf and /etc/lighttpd/conf-enabled/15-fastcgi-php.conf which points to /etc/lighttpd/conf-available/15-fastcgi-php.conf:
+
+	ls -l /etc/lighttpd/conf-enabled
+
+
+sudo /etc/init.d/lighttpd force-reload
+
+================== END LANGKAH2 BACKUP FILE ==================
+
+
+
+
+
+
+================== HANYA SAAT SERVER LAMA PAKE APACHE2 ==================
+Force Remove apache2 & php5 :
+sudo apt-get purge libapache2-mod-php5 php5 && \
+sudo apt-get install php5
+
+	http://stackoverflow.com/questions/9323678/repair-broken-symlinks-reinstall-php5
+	sudo apt-get autoremove apache2
+
+Force Remove php5-fpm :
+sudo apt-get remove --purge php5-fpm
+sudo apt-get update && sudo apt-get upgrade
+	-> Update All
+
+
+================== OPTIMALISASI ==================
+http://www.debianhelp.co.uk/performancelighttpd.htm
+http://redmine.lighttpd.net/projects/1/wiki
+http://tweaked.io/guide/lighttpd/
+
+	NEW 16-04-2014 :
+	http://redmine.lighttpd.net/projects/1/wiki/Docs_Performance
+	http://www.debianhelp.co.uk/performancelighttpd.htm
+
+
+================== END OPTIMALISASI ==================
+
+
+
+
+
+NB : 
+
+================== LIST LOG YANG DIBACKUP/HAPUS (Sisakan H - 30) ================== 
+- /var/www/xsysbaru/application/logs/ (BACKUP)
+- /var/www/xsys/ho/application/logs/ (BACKUP)
+- /var/www/print/application/logs/ (HAPUS)
+- /var/www/apptemuan/application/logs/ (HAPUS)
+
+================== LIST LOG YANG HAPUS (Sisakan H - 7) ==================
+- /var/www/xsysbaru/application/asset/files/sj/
+
+
+================== php5-fpm 503 - Service Not Available ==================
+
+	> Solved the case - As there is some difference between 12.10 and 12.04 - correct code in 15-fastcgi-php.conf is:
+
+	fastcgi.server += ( ".php" =>
+		((
+		        "host" => "127.0.0.1",
+		        "port" => "9000",
+		        "broken-scriptfilename" => "enable"
+		))
+	)
+
+
