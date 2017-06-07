@@ -2,7 +2,7 @@ Tutor Command Backup Restore PostgreSQL :
 
 https://stackoverflow.com/questions/2732474/restore-a-postgres-backup-file-using-the-command-line
 
-pg_dump -h localhost -p 5432 -U spos_usr -F c -b -v -f "spos_db_070617.backup" spos_db
+pg_dump -h localhost -p 5432 -U [usr_db] -F c -b -v -f "[nama file].backup" [nama db]
 
-pg_restore -h localhost -p 5432 -U spos_usr -d spos_db -v "spos_db_070617.backup"
+pg_restore -h localhost -p 5432 -U [usr_db] -d [nama db] -v "[nama file].backup"
 
