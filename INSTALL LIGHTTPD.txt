@@ -119,3 +119,14 @@ NB :
 	)
 
 
+================== Fix : Internal Server Error – Webuzo ==================
+Assumption : Webuzo User (soft) has a domain example.com with the path “home/soft/www/public_html”
+
+In the above scenario, files/folders with the home/soft/www/public_html directory should have the owner and group set to the webuzo username i.e soft instead of root.
+
+Execute the follow command from the terminal to fix the issues related to the permissions
+Root > chown -R soft:soft /home/soft/public_html
+
+Note : Replace “soft” by your Webuzo Username and “/home/soft/public_html” with the path to your files.
+    Sumber : http://www.webuzo.com/blog/how-to/fix-internal-server-error-webuzo-2690.html
+-----------------------------------------------------------------------------

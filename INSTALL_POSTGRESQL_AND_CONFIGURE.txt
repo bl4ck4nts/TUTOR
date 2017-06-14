@@ -150,3 +150,17 @@ locale: Cannot set LC_ALL to default locale: No such file or directory
 	Sumber : https://askubuntu.com/questions/881742/locale-cannot-set-lc-ctype-to-default-locale-no-such-file-or-directory-locale
 -----------------------------------------------------------------------------
 
+========= Purge Remove Postgresql =========
+apt-get --purge remove postgresql\*
+to remove everything PostgreSQL from your system. Just purging the postgres package isn't enough since it's just an empty meta-package.
+
+Once all PostgreSQL packages have been removed, run:
+
+rm -r /etc/postgresql/
+rm -r /etc/postgresql-common/
+rm -r /var/lib/postgresql/
+userdel -r postgres
+groupdel postgres
+
+    Sumber : https://stackoverflow.com/questions/2748607/how-to-thoroughly-purge-and-reinstall-postgresql-on-ubuntu
+-----------------------------------------------------------------------------
