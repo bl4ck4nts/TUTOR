@@ -1,0 +1,14 @@
+# Kumpulan perintah-perintah dalam linux (Ubuntu):
+
+# ========= Secure Copy =========
+scp [nama file] [user]@[host]:[path directory]
+tambahkan -P [port] apabila bukan port default (22)
+
+
+# ========= Netcat Direct Print Linux to Linux =========
+nc -v -w 3600 -q 3 [Nama Printer] < [Nama File]
+
+
+# ========= Netcat Direct Print Linux to Windows =========
+cat [Nama File] | smbclient -U [User Login]%[Pwd Login] "//[host]/[share name]" -c "print -"
+
