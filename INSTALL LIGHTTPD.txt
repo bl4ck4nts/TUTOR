@@ -96,16 +96,6 @@ http://tweaked.io/guide/lighttpd/
 
 NB : 
 
-================== LIST LOG YANG DIBACKUP/HAPUS (Sisakan H - 30) ================== 
-- /var/www/xsysbaru/application/logs/ (BACKUP)
-- /var/www/xsys/ho/application/logs/ (BACKUP)
-- /var/www/print/application/logs/ (HAPUS)
-- /var/www/apptemuan/application/logs/ (HAPUS)
-
-================== LIST LOG YANG HAPUS (Sisakan H - 7) ==================
-- /var/www/xsysbaru/application/asset/files/sj/
-
-
 ================== php5-fpm 503 - Service Not Available ==================
 
 	> Solved the case - As there is some difference between 12.10 and 12.04 - correct code in 15-fastcgi-php.conf is:
