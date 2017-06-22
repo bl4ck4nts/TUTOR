@@ -108,6 +108,8 @@ NB :
 		))
 	)
 
+    => Cek "cgi.fix_pathinfo=1" di php.ini, lalu enable.
+    => set listen di php5/fpm/pool.d/www.conf => 127.0.0.1
 
 ================== Fix : Internal Server Error – Webuzo ==================
 Assumption : Webuzo User (soft) has a domain example.com with the path “home/soft/www/public_html”
