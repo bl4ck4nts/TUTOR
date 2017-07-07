@@ -83,10 +83,13 @@ http://www.debianhelp.co.uk/performancelighttpd.htm
 http://redmine.lighttpd.net/projects/1/wiki
 http://tweaked.io/guide/lighttpd/
 
-	NEW 16-04-2014 :
-	http://redmine.lighttpd.net/projects/1/wiki/Docs_Performance
-	http://www.debianhelp.co.uk/performancelighttpd.htm
+16/04/2014 :
+http://redmine.lighttpd.net/projects/1/wiki/Docs_Performance
+http://www.debianhelp.co.uk/performancelighttpd.htm
 
+07/07/2017 :
+http://linuxbsdos.com/2015/02/17/how-to-reduce-php-fpm-php5-fpm-ram-usage-by-about-50/
+(Set php-fpm)
 
 ================== END OPTIMALISASI ==================
 
