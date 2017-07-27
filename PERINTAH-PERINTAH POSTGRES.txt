@@ -1,0 +1,12 @@
+## INSTALL EXTENSION http :
+https://github.com/pramsey/pgsql-http
+
+http://www.folstuff.eu/2016/03/postgresql-come-fare-richieste-http-da-plpgsql/ :
+
+apt install postgresql-server-dev-9.5 libcurl4-openssl-dev gcc
+copy file yg didownload dr github, extract masuk ke folder tersebut. lalu ketik :
+#root$ make
+#root$ make install
+lalu buka pgadmin ato IDE Database lainnya, pastikan login sebagai superuser. jalankan perintah :
+CREATE EXTENSION http;
+Tes : SELECT content FROM http_get('http://localhost');
