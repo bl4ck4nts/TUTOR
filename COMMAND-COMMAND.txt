@@ -12,3 +12,5 @@ nc -v -w 3600 -q 3 [Nama Printer] < [Nama File]
 # ========= Netcat Direct Print Linux to Windows =========
 cat [Nama File] | smbclient -U [User Login]%[Pwd Login] "//[host]/[share name]" -c "print -"
 
+# ========= Delete File tika too long =========
+find . -type f -delete
